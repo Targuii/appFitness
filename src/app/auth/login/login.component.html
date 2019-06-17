@@ -1,0 +1,29 @@
+<section>
+  <h2 fxLayoutAlign="center center">Connexion</h2>
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.2em" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field hintLabel="Email / Nom d'utilisateur">
+      <input
+        type="email"
+        matInput
+        placeholder="Email"
+        autocomplete="current-email"
+        required
+        formControlName="email"
+        email
+      >
+      <mat-error>{{loginForm.status}} : adresse email érronée</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="Mot de passe personnel">
+      <input
+        type="password"
+        matInput
+        placeholder="Mot de passe"
+        autocomplete="current-password"
+        formControlName="password"
+        required
+      >
+      <mat-error *ngIf="loginForm.invalid">{{loginForm.status}} : 6 caracteres min.</mat-error>
+    </mat-form-field>
+    <button [disabled]="loginForm.invalid" type="submit" mat-raised-button color="primary"><mat-icon>lock_open</mat-icon> Log in</button>
+  </form>
+</section>
