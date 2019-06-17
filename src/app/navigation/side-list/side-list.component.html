@@ -1,6 +1,6 @@
 <mat-nav-list>
-  <a routerLink="/signup" mat-list-item (click)="onClose()"><mat-icon mat-list-icon>group_add</mat-icon> inscription</a>
-  <a routerLink="/login" mat-list-item (click)="onClose()"><mat-icon mat-list-icon>lock_open</mat-icon> connexion</a>
-  <a routerLink="/training" mat-list-item (click)="onClose()"><mat-icon mat-list-icon>fitness_center</mat-icon> entrainement</a>
-  <a mat-list-item><mat-icon mat-list-icon (click)="onClose()">lock</mat-icon> deconnexion</a>
+  <a *ngIf="!isAuth" routerLink="/signup" mat-list-item (click)="onClose()"><mat-icon mat-list-icon>face</mat-icon> inscription</a>
+  <a *ngIf="!isAuth" routerLink="/login" mat-list-item (click)="onClose()"><mat-icon mat-list-icon>lock_open</mat-icon> connexion</a>
+  <a *ngIf="isAuth" routerLink="/training" mat-list-item (click)="onClose()"><mat-icon mat-list-icon>fitness_center</mat-icon> entrainement</a>
+  <a *ngIf="isAuth" mat-list-item><mat-icon mat-list-icon (click)="onLogout()" style="cursor: pointer;">lock</mat-icon> deconnexion</a>
 </mat-nav-list>

@@ -16,6 +16,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SideListComponent } from './navigation/side-list/side-list.component';
+import {StopTrainingComponent} from './training/current-training/stop-training.component';
+import {AuthService} from './services/AuthService';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { SideListComponent } from './navigation/side-list/side-list.component';
     SignupComponent,
     LoginComponent,
     HeaderComponent,
-    SideListComponent
+    SideListComponent,
+    StopTrainingComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { SideListComponent } from './navigation/side-list/side-list.component';
     MaterialModule,
     FlexLayoutModule,
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},],
-  bootstrap: [AppComponent]
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}, AuthService],
+  bootstrap: [AppComponent],
+  entryComponents: [StopTrainingComponent]
 })
 export class AppModule { }

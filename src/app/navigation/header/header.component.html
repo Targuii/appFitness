@@ -4,9 +4,19 @@
   </div>
   <div><a routerLink="/">LOGO</a></div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-    <ul fxLayout="nav-items" fxLayoutGap="1em">
-
-      <a routerLink="/signup">Inscription</a><a routerLink="/login">Login</a><a routerLink="/training">Entrainement</a>
+    <ul fxLayout class="nav-items" fxLayoutGap="1em">
+      <li *ngIf="!isAuth">
+        <a routerLink="/signup">Inscription</a>
+      </li>
+      <li *ngIf="!isAuth">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="isAuth">
+        <a routerLink="/training">Entrainement</a>
+      </li>
+      <li *ngIf="isAuth">
+        <a (click)="onLogout()" style="cursor: pointer">Déconnexion</a>
+      </li>
     </ul>
   </div>
 </mat-toolbar>

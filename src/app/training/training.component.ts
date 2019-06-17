@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingComponent implements OnInit {
 
+  ongoingTraining: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.ongoingTraining = false;
   }
-
 }
