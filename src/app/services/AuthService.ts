@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+import {Subject} from 'rxjs/Subject';
 import {User} from '../models/User';
 import {AuthData} from '../models/AuthData';
-import {Subject} from 'rxjs';
 
 @Injectable()
 export class AuthService {
